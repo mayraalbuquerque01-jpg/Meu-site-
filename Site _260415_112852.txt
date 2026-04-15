@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastel Uomo</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial; }
+
+body { background:#f8f9fa; }
+
+header {
+  background:white;
+  padding:15px;
+  text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+h1 { color:#7a9e9f; }
+
+.banner {
+  padding:40px;
+  text-align:center;
+  background:linear-gradient(to right,#dbe7e4,#f0e4e6);
+}
+
+.container { padding:20px; }
+
+.products {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+
+.product {
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.product img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.info {
+  padding:10px;
+}
+
+.price { color:#7a9e9f; font-weight:bold; }
+
+select {
+  width:100%;
+  padding:8px;
+  margin:8px 0;
+}
+
+button {
+  width:100%;
+  background:#25D366;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+/* Botão flutuante */
+.whatsapp-float {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  font-size:20px;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+</style>
+
+<script>
+function comprar(produto, selectId) {
+  let tamanho = document.getElementById(selectId).value;
+
+  if (tamanho === "") {
+    alert("Selecione um tamanho");
+    return;
+  }
+
+  let numero = "5599999999999"; // TROCAR
+  let mensagem = `Olá! Quero comprar:\n${produto}\nTamanho: ${tamanho}`;
+
+  let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+  window.open(url, "_blank");
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+  <h1>Pastel Uomo</h1>
+</header>
+
+<section class="banner">
+  <h2>Catálogo Masculino em Tons Pastéis</h2>
+</section>
+
+<section class="container">
+
+<div class="products">
+
+<!-- PRODUTO 1 -->
+<div class="product">
+  <img src="https://via.placeholder.com/300">
+  <div class="info">
+    <h3>Camisa Azul Pastel</h3>
+    <p class="price">R$ 79,90</p>
+
+    <select id="t1">
+      <option value="">Tamanho</option>
+      <option>P</option>
+      <option>M</option>
+      <option>G</option>
+      <option>GG</option>
+    </select>
+
+    <button onclick="comprar('Camisa Azul Pastel', 't1')">
+      Comprar
+    </button>
+  </div>
+</div>
+
+<!-- PRODUTO 2 -->
+<div class="product">
+  <img src="https://via.placeholder.com/300">
+  <div class="info">
+    <h3>Camisa Rosa Claro</h3>
+    <p class="price">R$ 119,90</p>
+
+    <select id="t2">
+      <option value="">Tamanho</option>
+      <option>P</option>
+      <option>M</option>
+      <option>G</option>
+      <option>GG</option>
+    </select>
+
+    <button onclick="comprar('Camisa Rosa Claro', 't2')">
+      Comprar
+    </button>
+  </div>
+</div>
+
+<!-- PRODUTO 3 -->
+<div class="product">
+  <img src="https://via.placeholder.com/300">
+  <div class="info">
+    <h3>Camisa Verde Menta</h3>
+    <p class="price">R$ 89,90</p>
+
+    <select id="t3">
+      <option value="">Tamanho</option>
+      <option>P</option>
+      <option>M</option>
+      <option>G</option>
+      <option>GG</option>
+    </select>
+
+    <button onclick="comprar('Camisa Verde Menta', 't3')">
+      Comprar
+    </button>
+  </div>
+</div>
+
+</div>
+
+</section>
+
+<!-- BOTÃO FLUTUANTE -->
+<a class="whatsapp-float" target="_blank"
+href="https://wa.me/5599999999999?text=Olá!%20Quero%20ver%20o%20catálogo">
+💬
+</a>
+
+</body>
+</html>
